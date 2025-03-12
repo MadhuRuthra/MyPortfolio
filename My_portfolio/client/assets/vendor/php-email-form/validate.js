@@ -66,7 +66,12 @@
       thisForm.querySelector('.loading').classList.remove('d-block');
       if (data.trim() == 'OK') {
         thisForm.querySelector('.sent-message').classList.add('d-block');
+        thisForm.querySelector('.sent-message').innerHTML = 'Your message has been sent. Thank you!';
         thisForm.reset(); 
+        // Reload the page after a short delay (e.g., 2 seconds)
+      setTimeout(function () {
+        window.location.reload();
+    }, 2000);
       } else {
         throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
       }
